@@ -22,12 +22,10 @@ class Quiz extends StatelessWidget {
         Question(
           questions[questionIndex]['questionText'],
         ),
-        //mapear a lista em um list de widgets
-        //... => Operador de spread, pega a lista e puxa todos os valores da lista pra fora, para ter apenas uma lista
         ...(questions[questionIndex]['answers'] as List<Map<String, Object>>)
             .map((answer) {
           return Answer(() => answerQuestion(answer['score']), answer['text']);
-        }).toList() //para passar o endereco de uma função com parametro e chamar depois, cria uma função anonima
+        }).toList()
       ],
     );
   }

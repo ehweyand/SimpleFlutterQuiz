@@ -6,7 +6,6 @@ class Result extends StatelessWidget {
 
   Result(this.resultScore, this.resetHandler);
 
-  //getter
   String get resultPhrase {
     String resultText;
     if (resultScore <= 8) {

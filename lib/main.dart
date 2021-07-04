@@ -1,32 +1,19 @@
 import 'package:flutter/material.dart'; //Material theme widgets
 
-//Importando os widgets criados separadamente.
+// Widgets
 import './quiz.dart';
 import './result.dart';
 
-/*void main() {
-  runApp(MyApp()); //define qual o core widget que vai usar, passando a função
-}*/
-
-//Maneira resumida, quando há apenas uma única linha, uma única expressão
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _MyAppState(); //Conecta com o State
+    return _MyAppState();
   }
 }
 
 class _MyAppState extends State<MyApp> {
-// 1 - Criar uma classe e usar objetos para representar pergunta e resposta
-  // 2 - Usar Maps
-  // var questions = [
-  //   'What\'s your favorite color?',
-  //   'What\'s your favorite animal?',
-  // ];
-  //const na frente é para variável
-  // const antes do valor (dos colchetes) é uma constante pro valor
   final _questions = const [
     {
       'questionText': 'What\'s your favorite color?',
@@ -57,26 +44,17 @@ class _MyAppState extends State<MyApp> {
     },
   ];
 
-  //o underscore na frente faz o dart reconhece que a classe é privada, pode ser apenas usada dentro deste arquivo
-  // Diz que o State pertece ao MyApp
-  var _questionIndex = 0; // atributo privado
+  var _questionIndex = 0;
   var _totalScore = 0;
 
   void _resetQuiz() {
-    //reconstruir a tela, método build
     setState(() {
       _questionIndex = 0;
       _totalScore = 0;
     });
   }
 
-  // função privada
   void _answerQuestion(int score) {
-    //embrulhar a parte que vai causar uma alteração do estado
-    //setState força a chamada do build novamente para atualizar o widget
-    //mudar o título da questão. Vai renderizar novamente na tela apenas a parte que alterou, automaticamente
-    //função anônima como parâmetro
-
     _totalScore += score;
 
     setState(() {
@@ -92,7 +70,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    // build() será chamada quando tentar "pintar" um elemento na tela
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -109,4 +86,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-// As vírgulas no final ajudam na extensão do dart para o vscode para formatar
